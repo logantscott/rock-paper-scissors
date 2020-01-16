@@ -1,9 +1,9 @@
 // IMPORT MODULES under test here:
-import { checkResult } from '../src/r-p-s.js';
+import { getMatchResult } from '../src/r-p-s.js';
 
 const test = QUnit.test;
 
-function result(input, cpu) {return checkResult(input, cpu);}
+function result(input, cpu) {return getMatchResult(input, cpu);}
 
 test('test loss', function(assert) {
     let input = 'rock';
