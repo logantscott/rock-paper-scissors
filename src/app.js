@@ -2,7 +2,7 @@ import { getRandomThrow, checkResult } from './r-p-s.js';
 
 // declare DOM elements in use
 const submit = document.getElementById('rpssubmit');
-const matchResults = document.getElementById('matchresults');
+const matchResultMessage = document.getElementById('matchresultmessage');
 const wins = document.getElementById('wins');
 const losses = document.getElementById('losses');
 const draws = document.getElementById('draws');
@@ -38,24 +38,19 @@ submit.addEventListener('click', () => {
     }
 
     // update the DOM
-    updateCounter();
-    updateMatchResults(msg);
+    updateMatchResult(msg);
     
 });
 
-// update current win/loss/draw total
-function updateCounter() {
+// update match result message and win/loss/draw counter
+function updateMatchResult(msg) {
     wins.textContent = winCounter;
     losses.textContent = lossCounter;
     draws.textContent = drawCounter;
+    matchResultMessage.textContent = `You throw ${userThrow}. Computer throws ${computerThrow}. You ${msg}!`;
 }
 
-// update match result message
-function updateMatchResults(msg) {
-    matchResults.textContent = `You throw ${userThrow}. Computer throws ${computerThrow}. You ${msg}!`;
-}
-
-// get match results from import function
+// set throws to variables for match result message and get match result from import function
 function getMatchResult() {
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
