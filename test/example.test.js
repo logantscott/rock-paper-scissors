@@ -3,9 +3,9 @@ import { checkResult } from '../src/r-p-s.js';
 
 const test = QUnit.test;
 
-test('test loss', function(assert) {
-    function result(input, cpu) {return checkResult(input, cpu);}
+function result(input, cpu) {return checkResult(input, cpu);}
 
+test('test loss', function(assert) {
     let input = 'rock';
     let cpu = 'paper';
     const expect = -1;
@@ -21,8 +21,6 @@ test('test loss', function(assert) {
 });
 
 test('test win', function(assert) {
-    function result(input, cpu) {return checkResult(input, cpu);}
-
     let input = 'rock';
     let cpu = 'scissors';
     const expect = 1;
@@ -38,8 +36,6 @@ test('test win', function(assert) {
 });
 
 test('test match', function(assert) {
-    function result(input, cpu) {return checkResult(input, cpu);}
-
     let input = 'rock';
     let cpu = 'rock';
     const expect = 0;
