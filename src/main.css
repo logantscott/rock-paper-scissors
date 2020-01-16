@@ -17,3 +17,22 @@ body {
     box-shadow: 0px 0px 12px 0px #333;
     padding: 6px 12px;
 }
+
+header {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main {
+    text-align: center;
+}
+
+main ul, p {
+    margin: 8px auto;
+}
+
+main ul {
+    display: inline-block;
+    text-align: left;
+}

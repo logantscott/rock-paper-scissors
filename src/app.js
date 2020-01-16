@@ -1,0 +1,1 @@
+import {getRandomThrow, checkResult} from './r-p-screen.js';
