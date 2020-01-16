@@ -1,4 +1,4 @@
-import { getRandomThrow, checkResult } from './r-p-s.js';
+import { getRandomThrow, getMatchResult } from './r-p-s.js';
 
 // declare DOM elements in use
 const submit = document.getElementById('rpssubmit');
@@ -23,7 +23,7 @@ let msg;
 submit.addEventListener('click', () => {
 
     // get match result
-    matchResult = getMatchResult()
+    matchResult = playRockPaperScissors();
 
     // update variables used to update DOM
     if (matchResult === 1) {
@@ -42,21 +42,21 @@ submit.addEventListener('click', () => {
     
 });
 
+// set throws to variables for match result message and get match result from import function
+function playRockPaperScissors() {
+    for (let i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            userThrow = radioButtons[i].value;
+            computerThrow = getRandomThrow();
+            return getMatchResult(userThrow, computerThrow);
+        }
+    }
+}
+
 // update match result message and win/loss/draw counter
 function updateMatchResult(msg) {
     wins.textContent = winCounter;
     losses.textContent = lossCounter;
     draws.textContent = drawCounter;
     matchResultMessage.textContent = `You throw ${userThrow}. Computer throws ${computerThrow}. You ${msg}!`;
-}
-
-// set throws to variables for match result message and get match result from import function
-function getMatchResult() {
-    for (let i = 0; i < radioButtons.length; i++) {
-        if (radioButtons[i].checked) {
-            userThrow = radioButtons[i].value;
-            computerThrow = getRandomThrow();
-            return checkResult(userThrow, computerThrow);
-        }
-    }
 }
